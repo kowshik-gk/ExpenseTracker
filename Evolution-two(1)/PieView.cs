@@ -24,10 +24,17 @@ namespace Evolution_two_1_
         private void button4_Click(object sender, EventArgs e)
         {
             // panel1.Invalidate();
-            typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance |
-             BindingFlags.NonPublic, null, panel1, new object[] { true });
+            if (textBox1.Text.Equals("") || textBox2.Text.Equals(""))
+            {
+                MessageBox.Show("Enter Valid Data", "Invalid Data", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            }
+            else
+            {
+                typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance |
+                 BindingFlags.NonPublic, null, panel1, new object[] { true });
 
-            PaintThePie();
+                PaintThePie();
+            }
         }
 
         private void PaintThePie()

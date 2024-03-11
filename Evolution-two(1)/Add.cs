@@ -30,18 +30,25 @@ namespace Evolution_two_1_
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (textBox1.Text.Equals("") || comboBox1.Text.Equals(""))
+            {
+                MessageBox.Show("Enter Valid Data", "Invalid Data", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
-            C = new CExpense();
-            C.Amount = int.Parse(textBox1.Text);
-            C.Category = comboBox1.Text;
-            C.Date = datePicker1.Value.Date;
-            C.Description = richTextBox1.Text;
+            }
+            else
+            {
+                C = new CExpense();
+                C.Amount = int.Parse(textBox1.Text);
+                C.Category = comboBox1.Text;
+                C.Date = datePicker1.Value.Date;
+                C.Description = richTextBox1.Text;
 
 
 
-            E?.Invoke(sender, C);
-            //this.Hide();
-            this.Visible = false;
+                E?.Invoke(sender, C);
+                //this.Hide();
+                this.Visible = false;
+            }
         }
     }
 }

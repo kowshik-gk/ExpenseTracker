@@ -21,15 +21,27 @@ namespace Evolution_two_1_
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Add?.Invoke(sender, textBox2.Text);
-            this.Hide();
+            if (textBox2.Text.Equals("")) { 
+                MessageBox.Show("Enter Valid Data", "Invalid Data", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            }
+            else
+            {
+                Add?.Invoke(sender, textBox2.Text);
+                this.Hide();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
-            Remove?.Invoke(sender, textBox2.Text);
-            this.Hide();
+            if (textBox2.Text.Equals(""))
+            {
+                MessageBox.Show("Enter Valid Data", "Invalid Data", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            }
+            else
+            {
+                Remove?.Invoke(sender, textBox2.Text);
+                this.Hide();
+            }
         }
     }
 }
